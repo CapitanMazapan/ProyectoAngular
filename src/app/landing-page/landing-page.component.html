@@ -1,1 +1,26 @@
-<p>landing-page works!</p>
+<div class="body">
+    <div class="tableCenter">
+        <table class="table">
+            <thead class="thead-dark">
+                <!-- thead La cabecera principal de la table -->
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- tbody es el cuerpo de los datos que se van a mostrar en mi tabla -->
+                <tr *ngFor="let product of products">
+                    <th scope="row">
+                        {{product.id}}
+                    </th>
+                    <td>{{product.name}} </td>
+                    <td>{{product.price}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
