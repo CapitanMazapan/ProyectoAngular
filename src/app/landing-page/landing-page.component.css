@@ -1,18 +1,20 @@
 .body {
-    text-align: center;
-    margin-top: 5px;
-    font-size: medium;
-    font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.bodyButton {
-    text-align: center;
-    margin-top: 50px;
+.main-title {
+  font-family: 'Lobster', cursive;
+  font-size: 120px;
 }
 
-.tableCenter {
-    width: 70%;
-    height: 70%;
-    margin-left: auto;
-    margin-right: auto;
-} 
+.main-subtitle {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 35px;
+}

@@ -1,1 +1,52 @@
-<p>login works!</p>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink="/landing-page">
+        <img src="assets/img/candy_icon.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        Sweetopia
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/landing-page">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About us</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="body">
+    <div class="container-fluid login-container mt-5">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center pt-4 pb-3">
+                <img src="assets/img/candy_icon.png" width="75" height="75" alt="">
+            </div>
+            <div class="col-12 text-center pb-3">
+                <h3>Welcome!</h3>
+            </div>
+            <div class="form-group mx-auto" style="width: 250px;">
+                <label for="exampleDropdownFormEmail1">Username</label>
+                <input type="text" class="form-control" id="exampleDropdownFormUsername1" placeholder="">
+            </div>
+            <div class="form-group mx-auto" style="width: 250px;">
+                <label for="exampleDropdownFormPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="">
+            </div>
+            <div class="mx-auto" style="width: 250px;">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Sign in</button>
+            </div>
+            <div class="d-flex justify-content-center my-4" style="width: 100%;">
+                <a (click) = loginG()>
+                    <img src="assets/img/google.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                </a>
+            </div>
+            <div class="mx-auto" style="width: 260px;">
+                <a routerLink="/register">Don't you have an account? Sign up</a>
+            </div>
+        </div>
+    </div>
+</div>

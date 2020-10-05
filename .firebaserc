@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "angular-deploy-43099"
+  },
+  "targets": {
+    "angular-deploy-43099": {
+      "hosting": {
+        "ProyectoAngular": [
+          "angular-deploy-43099"
+        ]
+      }
+    }
+  }
+}
