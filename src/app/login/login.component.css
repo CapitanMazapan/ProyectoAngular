@@ -91,6 +91,10 @@
     font-size: 14px;
 }
 
+.register a:hover {
+    color: red;
+}
+
 .full-width {
     width: 100%;
 }

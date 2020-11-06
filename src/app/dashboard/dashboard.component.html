@@ -1,5 +1,73 @@
-<app-top></app-top>
-<br>
-<br>
+<p>
+    <mat-toolbar color="primary">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span style="margin-right: 10px;">Sweetopia</span>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <span>Dashboard</span>
+        </button>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+            (click)="logout()">
+            <span>Salir</span>
+        </button>
+    </mat-toolbar>
+</p>
+<div class="main-div">
+    <mat-card class="register-container">
+        <div class="logo-name">
+            <h1>Add Register</h1>
+        </div>
+        <form class="register-form" [formGroup]="addRegisterFormGroup">
+            <div class="inputs">
+                <mat-form-field class="full-width">
+                    <mat-label>Fullname</mat-label>
+                    <input matInput placeholder="Fullname" formControlName="fullname">
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Age</mat-label>
+                    <input matInput placeholder="Age" formControlName="age">
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" formControlName="email">
+                </mat-form-field>
+                <div class="buttom-container">
+                    <button class="full-width bg-primary" [disabled]="addRegisterFormGroup.invalid" mat-raised-button color="warn" (click)="addRegister()">Agregar</button>
+                </div>
+            </div>
+        </form>
+    </mat-card>
 
-<h1>Hola Body</h1>
+    <div>
+        <div *ngIf="status">
+            <div *ngIf="products.length === 0">
+                <p>{{ info | uppercase }}</p>
+            </div>
+            <div class="container">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Nombre Completo</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of products">
+                            <!--<th scope="row">{{product.id}}</th>-->
+                            <th scope="row">{{product.nombre_com}}</th>
+                            <td>{{product.edad}}</td>
+                            <td>{{product.correo}}</td>
+                            <td><button mat-raised-button color="warn" (click)="deleteProduct(product.id)">Eliminar</button></td>
+                            <td><button mat-stroked-button color="accent" (click)="updateProduct(product.id)">Actualizar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

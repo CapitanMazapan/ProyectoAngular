@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('user', JSON.stringify(access));
         this._router.navigate(['dashboard']);
       }, error => {
-      
+          console.log("Datos inválidos")
       }
       );
     }

@@ -21,6 +21,15 @@ export class AuthServiceService {
     }
   }
 
+  getUser(): Object {
+    let user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      return user;
+    } else {
+      return null;
+    }
+  }
+
   login(username: string, password: string): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({

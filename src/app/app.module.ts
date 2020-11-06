@@ -12,7 +12,6 @@ import { RegisterComponent } from './register/register.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { TopComponent } from './navTop/top/top.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,7 +35,6 @@ import { MatIconModule } from '@angular/material/icon';
     RegisterComponent,
     HeaderComponent,
     DashboardComponent,
-    TopComponent,
   ],
   imports: [
     BrowserModule,
