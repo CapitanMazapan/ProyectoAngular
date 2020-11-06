@@ -1,8 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html, body {
     height: 100%;
 }
 
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background: -webkit-linear-gradient(left, #b224ef, #F9627D);
+    background-color: #b224ef;
 }

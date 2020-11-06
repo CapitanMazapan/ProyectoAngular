@@ -1,18 +1,35 @@
 <div class="main-div">
-    <mat-card>
+    <mat-card class="login-container">
+        <div class="logo-name">
+            <img src="assets/img/candy_icon.png" alt="Sweetopia's icon">
+            <h1>Sweetopia</h1>
+        </div>
         <form class="login-form" [formGroup]="loginFormGroup">
-            <mat-form-field class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input matInput placeholder="Email" formControlName="email">
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width">
-                <mat-label>Password</mat-label>
-                <input matInput placeholder="Password" formControlName="password">
-            </mat-form-field>
-
-            <button class="example-full-width" [disabled]="loginFormGroup.invalid" mat-raised-button color="primary"
-                (click)="login()">Aceptar</button>
+            <div class="inputs">
+                <mat-form-field class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" formControlName="email">
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" matInput placeholder="Password" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <div class="buttom-container">
+                <button class="full-width bg-primary" [disabled]="loginFormGroup.invalid" mat-raised-button color="warn" (click)="login()">Sign in</button>
+            </div>
+            <div class="google-auth">
+                <button class="full-width" mat-raised-button color="link" (click)="loginG()">
+                    <img src="assets/img/google.png" alt="google authentication">
+                    Sign in with Google
+                </button>
+            </div>
+            <div class="register">
+                <a routerLink="/register" class="text-center text-no-decorated">Don't have an account? Sign up</a>
+            </div>
         </form>
     </mat-card>
 </div>

@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
   loginFormGroup: FormGroup;
+  hide = true;
 
   constructor(private serviceService: ServiceService, private _formBuilder: FormBuilder, private _authServiceService: AuthServiceService, private _router: Router) {
     if (_authServiceService.isAuthenticated()) {
