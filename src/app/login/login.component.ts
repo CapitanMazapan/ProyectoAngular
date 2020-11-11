@@ -27,15 +27,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginFormGroup = this._formBuilder.group({
-      email: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required]
     })
   }
 
   login(): void {
     const data = this.loginFormGroup.value;
-    if (data.email && data.password) {
-      this._authServiceService.login(data.email, data.password).subscribe(access => {
+    if (data.username && data.password) {
+      this._authServiceService.login(data.username, data.password).subscribe(access => {
         localStorage.setItem('user', JSON.stringify(access));
         this._router.navigate(['dashboard']);
       }, error => {

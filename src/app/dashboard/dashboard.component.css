@@ -2,32 +2,33 @@
     height: 100vh;
 }
 
-.main-div, .logo-name {
+.main-div, .logo-name, .filter_add-form {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.mat-toolbar {
-    background-color: white;
-    color: #00A1E4;
+.table-container {
+    min-width: 475px;
+    max-width: 950px;
+    width: 100%;
 }
 
-.example-spacer {
-  flex: 1 1 auto;
-}
-
-.register-container {
+.filter_add-container {
     border-radius: 20px;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    margin-bottom: 20px;
 }
 
-.register-form {
-    min-width: 150px;
-    max-width: 300px;
-    min-height: 350px;
-    max-height: 450px;
+.filter_add-form, .registers-dash {
+    min-width: 800px;
+    max-width: 801px;
     width: 100%;
+}
+
+.filter_add-form {
+    min-height: 50px;
+    max-height: 51px;
     height: 100%;
 }
 

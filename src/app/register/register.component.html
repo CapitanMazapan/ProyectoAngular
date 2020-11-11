@@ -6,23 +6,27 @@
         <form class="register-form" [formGroup]="registerFormGroup">
             <div class="inputs">
                 <mat-form-field class="full-width">
-                    <mat-label>Fullname</mat-label>
-                    <input matInput placeholder="Fullname" formControlName="fullname">
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="Username" formControlName="username">
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="Email" formControlName="email">
+                    <input matInput placeholder="Email" type="email" formControlName="email">
                 </mat-form-field>
-                <div class="full-width" style="display:flex; justify-content: space-between;">
-                    <mat-form-field class="half-width">
-                        <mat-label>Username</mat-label>
-                        <input matInput placeholder="Username" formControlName="username">
-                    </mat-form-field>
-                    <mat-form-field class="half-width">
-                        <mat-label>Password</mat-label>
-                        <input matInput placeholder="Password" formControlName="password">
-                    </mat-form-field>
-                </div>
+                <mat-form-field class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" matInput placeholder="Password" formControlName="password1">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide2 ? 'password' : 'text'" matInput placeholder="Confirm your password" formControlName="password2">
+                    <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+                        <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
                 <div class="buttom-container">
                     <button class="full-width bg-primary" [disabled]="registerFormGroup.invalid" mat-raised-button color="warn" (click)="register()">Sign up</button>
                 </div>
