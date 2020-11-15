@@ -1,37 +1,63 @@
 <div class="main-div">
     <mat-card class="register-container">
-        <div class="logo-name">
-            <h1>Register</h1>
-        </div>
+        <div class="logo-name"><h1>Register</h1></div>
         <form class="register-form" [formGroup]="registerFormGroup">
             <div class="inputs">
                 <mat-form-field class="full-width">
                     <mat-label>Username</mat-label>
-                    <input matInput placeholder="Username" formControlName="username">
+                    <input matInput placeholder="Username" [formControl]="usernameFormControl" [errorStateMatcher]="matcher" formControlName="username">
+                    <mat-error *ngIf="usernameFormControl.hasError('required')">
+                        Username is <strong>required</strong>.
+                    </mat-error>
                 </mat-form-field>
+
                 <mat-form-field class="full-width">
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="Email" type="email" formControlName="email">
+                    <input matInput placeholder="Email" type="email" [formControl]="emailFormControl" [errorStateMatcher]="matcher" formControlName="email">
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                        Please enter a valid email address.
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                        Email is <strong>required</strong>.
+                    </mat-error>
                 </mat-form-field>
+
                 <mat-form-field class="full-width">
                     <mat-label>Password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" matInput placeholder="Password" formControlName="password1">
+                    <input matInput [type]="hide ? 'password' : 'text'" matInput placeholder="Password" [formControl]="password1FormControl" [errorStateMatcher]="matcher" formControlName="password1">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
+                    <mat-error *ngIf="password1FormControl.hasError('required')">
+                        Password is <strong>required</strong>.
+                    </mat-error>
+                    <mat-error *ngIf="password1FormControl.errors?.minlength && !password1FormControl.hasError('required')">
+                        Password is short (min. 8 characters).
+                    </mat-error>
                 </mat-form-field>
+
                 <mat-form-field class="full-width">
-                    <mat-label>Password</mat-label>
-                    <input matInput [type]="hide2 ? 'password' : 'text'" matInput placeholder="Confirm your password" formControlName="password2">
+                    <mat-label>Confirm your password</mat-label>
+                    <input matInput [type]="hide2 ? 'password' : 'text'" matInput placeholder="Confirm your password" [formControl]="password2FormControl" [errorStateMatcher]="matcher" formControlName="password2">
                     <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
                         <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
+                    <mat-error *ngIf="password2FormControl.hasError('required')">
+                        Password is <strong>required</strong>.
+                    </mat-error>
+                    <mat-error *ngIf="password2FormControl.errors?.minlength && !password2FormControl.hasError('required')">
+                        Password is short (min. 8 characters).
+                    </mat-error>
+                    <mat-error *ngIf="!password2FormControl.hasError('required') && !password2FormControl.errors?.minlength">
+                        Passwords do not match
+                    </mat-error>
                 </mat-form-field>
+
                 <div class="buttom-container">
                     <button class="full-width bg-primary" [disabled]="registerFormGroup.invalid" mat-raised-button color="warn" (click)="register()">Sign up</button>
                 </div>
-                <div class="sign-in">
-                    <a routerLink="/login" class="text-center text-no-decorated">Already have an account? Sign in</a>
+                <div class="sign-in text-center">
+                    <p>Already have an account? <a routerLink="/login" class="text-no-decorated">Sign in!</a></p>
                 </div>
             </div>
         </form>

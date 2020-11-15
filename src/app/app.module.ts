@@ -1,14 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NavtopComponent } from './navtop/navtop.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddRegisterDashComponent } from './add-register-dash/add-register-dash.component';
@@ -29,6 +29,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -36,8 +37,8 @@ import { MatIconModule } from '@angular/material/icon';
     LandingPageComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent,
     NavtopComponent,
+    DashboardComponent,
     AddRegisterDashComponent,
   ],
   imports: [
@@ -60,6 +61,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatToolbarModule,
     MatDialogModule,
     MatIconModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

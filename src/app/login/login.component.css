@@ -67,7 +67,7 @@
 
 .google-auth {
     padding: 0 20px;
-    margin: 20px auto;
+    margin: 15px auto;
 }
 
 .google-auth img {
@@ -79,7 +79,8 @@
 .google-auth button {
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
-    padding: 2px 0;
+    padding: 4px 0;
+    margin: 3px 0;
 }
 
 .google-auth button:hover {
