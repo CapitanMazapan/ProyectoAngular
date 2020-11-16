@@ -1,9 +1,15 @@
-* {
-    overflow: hidden;
+.body {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .main-div {
-    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .main-div, .logo-name {
@@ -88,12 +94,17 @@
 }
 
 .register {
-    padding: 0 20px;
+    padding: 10px 20px;
+}
+
+.register p, .register a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
 }
 
 .register a {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
+    font-weight: 500;
+    color: #0062cc;
 }
 
 .register a:hover {

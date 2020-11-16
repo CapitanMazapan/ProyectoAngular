@@ -5,52 +5,54 @@
             <div class="inputs">
                 <mat-form-field class="full-width">
                     <mat-label>Username</mat-label>
-                    <input matInput placeholder="Username" [formControl]="usernameFormControl" [errorStateMatcher]="matcher" formControlName="username">
-                    <mat-error *ngIf="usernameFormControl.hasError('required')">
+                    <input matInput placeholder="Username" [errorStateMatcher]="matcher" formControlName="username">
+                    <mat-error *ngIf="registerFormGroup.get('username').hasError('required')">
                         Username is <strong>required</strong>.
                     </mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="full-width">
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="Email" type="email" [formControl]="emailFormControl" [errorStateMatcher]="matcher" formControlName="email">
-                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    <input matInput placeholder="Email" type="email" [errorStateMatcher]="matcher" formControlName="email">
+                    <mat-error *ngIf="registerFormGroup.get('email').hasError('email') && !registerFormGroup.get('email').hasError('required')">
                         Please enter a valid email address.
                     </mat-error>
-                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                    <mat-error *ngIf="registerFormGroup.get('email').hasError('required')">
                         Email is <strong>required</strong>.
                     </mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="full-width">
                     <mat-label>Password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" matInput placeholder="Password" [formControl]="password1FormControl" [errorStateMatcher]="matcher" formControlName="password1">
+                    <input matInput [type]="hide ? 'password' : 'text'" matInput placeholder="Password" [errorStateMatcher]="matcher" formControlName="password1">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
-                    <mat-error *ngIf="password1FormControl.hasError('required')">
+                    <mat-error *ngIf="registerFormGroup.get('password1').hasError('required')">
                         Password is <strong>required</strong>.
                     </mat-error>
-                    <mat-error *ngIf="password1FormControl.errors?.minlength && !password1FormControl.hasError('required')">
+                    <mat-error *ngIf="registerFormGroup.get('password1').errors?.minlength && !registerFormGroup.get('password1').hasError('required')">
                         Password is short (min. 8 characters).
                     </mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="full-width">
                     <mat-label>Confirm your password</mat-label>
-                    <input matInput [type]="hide2 ? 'password' : 'text'" matInput placeholder="Confirm your password" [formControl]="password2FormControl" [errorStateMatcher]="matcher" formControlName="password2">
+                    <input matInput [type]="hide2 ? 'password' : 'text'" matInput placeholder="Confirm your password" [errorStateMatcher]="matcher2" formControlName="password2">
                     <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
                         <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
-                    <mat-error *ngIf="password2FormControl.hasError('required')">
+                    <mat-error *ngIf="registerFormGroup.get('password2').hasError('required'); else elseBlock">
                         Password is <strong>required</strong>.
                     </mat-error>
-                    <mat-error *ngIf="password2FormControl.errors?.minlength && !password2FormControl.hasError('required')">
+                    <mat-error *ngIf="registerFormGroup.get('password2').errors?.minlength && !registerFormGroup.get('password2').hasError('required')">
                         Password is short (min. 8 characters).
                     </mat-error>
-                    <mat-error *ngIf="!password2FormControl.hasError('required') && !password2FormControl.errors?.minlength">
-                        Passwords do not match
-                    </mat-error>
+                    <ng-template #elseBlock>
+                        <mat-error *ngIf="registerFormGroup.hasError('notSame')">
+                            Passwords don't match.
+                        </mat-error>
+                    </ng-template>
                 </mat-form-field>
 
                 <div class="buttom-container">

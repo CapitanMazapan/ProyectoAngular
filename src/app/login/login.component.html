@@ -1,4 +1,5 @@
-<mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+<div class="body">
+<div *ngIf="waiting"><mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar></div>
 <div class="main-div">
     <mat-card class="login-container">
         <div class="logo-name">
@@ -9,14 +10,23 @@
             <div class="inputs">
                 <mat-form-field class="full-width">
                     <mat-label>Username</mat-label>
-                    <input matInput placeholder="Userame" formControlName="username">
+                    <input matInput placeholder="Userame" [formControl]="usernameFormControl" [errorStateMatcher]="matcher" formControlName="username">
+                    <mat-error *ngIf="usernameFormControl.hasError('required')">
+                        Username is <strong>required</strong>.
+                    </mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <mat-label>Password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" matInput placeholder="Password" formControlName="password">
+                    <input matInput [type]="hide ? 'password' : 'text'" matInput placeholder="Password" [formControl]="passwordFormControl" [errorStateMatcher]="matcher" formControlName="password">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
+                    <mat-error *ngIf="passwordFormControl.hasError('required')">
+                        Password is <strong>required</strong>.
+                    </mat-error>
+                    <mat-error *ngIf="passwordFormControl.errors?.minlength && !passwordFormControl.hasError('required')">
+                        Password is short (min. 8 characters).
+                    </mat-error>
                 </mat-form-field>
             </div>
             <div class="buttom-container">
@@ -28,9 +38,10 @@
                     Sign in with Google
                 </button>
             </div>
-            <div class="register">
-                <a routerLink="/register" class="text-center text-no-decorated">Don't have an account? Sign up</a>
+            <div class="register text-center">
+                <p>Don't have an account? <a routerLink="/register" class="text-no-decorated">Sign up!</a></p>
             </div>
         </form>
     </mat-card>
+</div>
 </div>
