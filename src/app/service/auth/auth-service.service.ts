@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class AuthServiceService {
-  api: String = 'https://backend-web-ids.herokuapp.com/';
+  api: String = 'http://web-luis.ddns.net/';
 
   constructor(private http: HttpClient) { }
 

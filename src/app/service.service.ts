@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 
 export class ServiceService {
-  private REST_API_SERVER = "https://backend-web-ids.herokuapp.com/";
+  private REST_API_SERVER = "http://web-luis.ddns.net/";
   constructor(private authGoogle: AngularFireAuth, private router: Router, private httpclient: HttpClient, private _authService: AuthServiceService) { }
 
   public getAuthGoogle() {
